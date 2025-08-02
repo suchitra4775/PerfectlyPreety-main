@@ -1,0 +1,46 @@
+.cardcontainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 cards per row */
+    gap: 30px;
+    padding: 0 100px;
+}
+
+.card-box {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: transform 0.2s ease;
+}
+
+.card-box:hover {
+    transform: scale(1.03);
+}
+
+.card-img-top {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.desc-container {
+    font-size: 0.9rem;
+    padding: 10px;
+    min-height: 60px;
+    color: #333;
+}
+
+.price-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.price-cont {
+    text-decoration: line-through;
+    color: #888;
+    margin: 0 -10px;
+}
