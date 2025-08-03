@@ -1,11 +1,15 @@
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../components/common/Navbar";
 import Footer from "../components/common/Footer";
+import { Delete } from "../utilities/HttpService (3)";
 
 const Checkout = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
+
+  const username = sessionStorage.getItem("username")
+
 
   const cartItems = state?.cartItems || [];
   const total = state?.total || 0;
@@ -23,6 +27,17 @@ const Checkout = () => {
         <Footer />
       </div>
     );
+  }
+
+  const handlepaymentDone=()=>{
+    Delete(`http://localhost:8888/userdashboard?name=${username}`).then((res)=>{
+      alert("Your order has been placed")
+      console.log(res)
+      navigate("/")
+    }).catch((err)=>{
+      console.log(err)
+
+    })
   }
 
   return (
@@ -67,6 +82,7 @@ const Checkout = () => {
     alt="QR Code"
     style={{ width: "400px", margin: "20px auto", display: "block" }}
   />
+  <Link to="/" onClick={handlepaymentDone}>Click once you have done payment</Link><br/><br/>
   <button className="btn btn-success mt-3" onClick={() => navigate("/")}>
     Back to Home 🏠
   </button>

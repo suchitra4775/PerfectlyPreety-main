@@ -12,11 +12,6 @@ const UserCart = () => {
   const username = sessionStorage.getItem("username");
 
   useEffect(() => {
-    if (!username) {
-      alert("Please login to view your cart.");
-      navigate("/login");
-      return;
-    }
 
     Get(`http://localhost:8888/userdashboard?name=${username}`)
       .then((res) => {
@@ -89,9 +84,10 @@ const UserCart = () => {
         </h2>
 
         {Array.isArray(userCart) && userCart.length === 0 ? (
-          <p className="text-center text-muted">
+          <div style={{textAlign:"center"}}><p className=" text-muted">
             Cart is empty. Add something you love 💖
-          </p>
+          </p><Link to="/blush" style={{backgroundColor:"#dd6da5ff", padding:"7px 9px", borderRadius:"25px", color:"white", textDecoration:"none"}}>Buy products</Link>
+          </div>
         ) : (
           <div className="table-responsive">
             <table

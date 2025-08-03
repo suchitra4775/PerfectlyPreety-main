@@ -5,7 +5,6 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
-import axios from "axios";
 import { Get } from "../../utilities/HttpService (3)";
 
 const Navbar = () => {
@@ -34,7 +33,6 @@ const Navbar = () => {
 
       Get(`http://localhost:8888/userdashboard?name=${username}`)
         .then((res) => {
-          // No need to filter manually unless duplicates are inserted
           setproductcount(res.length);
         })
         .catch((err) => {
@@ -47,19 +45,13 @@ const Navbar = () => {
     }
   };
 
-  fetchCart(); // initial fetch
-
-  // Listen for global cart updates
+  fetchCart(); 
   window.addEventListener("cartUpdate", fetchCart);
 
-  // Clean up listener on unmount
   return () => {
     window.removeEventListener("cartUpdate", fetchCart);
   };
-}, []); // <== DON'T ADD username here; sessionStorage doesn't trigger re-renders
-
-
-
+}, []);
 
 
   const handlelogout = ()=>{
@@ -198,8 +190,9 @@ const Navbar = () => {
             </Link>
           </li>
         </ul>
-        <button 
-  onClick={handlelogin} 
+        
+        {isLogin?(
+  <Link to="/usercart"><button  
   style={{
     border: "none",
     background: "none",
@@ -213,18 +206,22 @@ const Navbar = () => {
   <div
     style={{
       backgroundColor: "crimson",
-      borderRadius: "50px",
+      borderRadius: "100px",
       color: "white",
-      padding: ".5px 8px",
+      padding: " .01px 5px .01px 5px",
       fontWeight: "bold",
       display: "inline-block",
-      textDecoration: "none"
+      textDecoration: "none",
+      marginBottom:"25px",
+      marginLeft:"-10px"
     }}
   >
     {productcount}
   </div>
-</button>
-
+</button></Link>
+        ):(
+            <></>
+        )}
       </div>
     </nav>
   );

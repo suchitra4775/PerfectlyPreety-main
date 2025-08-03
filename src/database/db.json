@@ -62,6 +62,15 @@
       "dob": "2005-07-15",
       "gender": "Female",
       "password": "divya123"
+    },
+    {
+      "id": "1a42",
+      "name": "Pillya",
+      "email": "pillya@gmail.com",
+      "contact": "8007160912",
+      "dob": "2025-05-28",
+      "gender": "Male",
+      "password": "pillya12"
     }
   ],
   "loginadmin": [
@@ -83,15 +92,15 @@
     {
       "id": "2",
       "image": "/assests/images/Card/eyeshadow.jpg",
-      "description": "Long-wear liquid lipstick with bold color payoff",
+      "description": "Bold, blendable eyeshadow that captivate all day.",
       "price": 499,
       "originalPrice": 800,
       "discount": 15
     },
     {
       "id": "3",
-      "image": "/assests/images/Card/primer.jpg",
-      "description": "Long-wear liquid lipstick with bold color payoff",
+      "image": "/assests/images/Card/moreblush.jpg",
+      "description": "Adds a pop of color and enhances skin radiance.",
       "price": 499,
       "originalPrice": 599,
       "discount": 15
@@ -99,7 +108,7 @@
     {
       "id": "4",
       "image": "/assests/images/Card/swiss.avif",
-      "description": "Long-wear liquid lipstick with bold color payoff",
+      "description": "Glamour to go, get your eyeshadow fix today.",
       "price": 300,
       "originalPrice": 599,
       "discount": 15
@@ -107,7 +116,7 @@
     {
       "id": "5",
       "image": "/assests/images/Card/toner.avif",
-      "description": "Long-wear liquid lipstick with bold color payoff",
+      "description": "Six shades of flawless coverage, designed for you.",
       "price": 4997,
       "originalPrice": 599,
       "discount": 15
@@ -115,7 +124,7 @@
     {
       "id": "6",
       "image": "/assests/images/Card/primer.jpg",
-      "description": "Long-wear liquid lipstick with bold color payoff",
+      "description": "Buy the nude that speaks to your natural beauty.",
       "price": 499,
       "originalPrice": 599,
       "discount": 15
@@ -461,6 +470,48 @@
       "originalPrice": 425,
       "discount": 10,
       "name": "Divya",
+      "quantity": 1
+    },
+    {
+      "id": "8",
+      "image": "/assests/images/lipstick/swiss.avif",
+      "description": "Swiss Beauty Mac",
+      "price": 269,
+      "originalPrice": 300,
+      "discount": 10,
+      "title": "Swiss Beauty Mac ",
+      "name": "Pillya",
+      "quantity": 1
+    },
+    {
+      "id": "1",
+      "image": "/assests/images/blush/nybaeblush.webp",
+      "description": "Nybae pro blush+highlighter",
+      "price": 229,
+      "originalPrice": 399,
+      "discount": 5,
+      "name": "Pillya",
+      "quantity": 1
+    },
+    {
+      "id": "1",
+      "image": "  /assests/images/foundation/kayfoundation.avif",
+      "description": "Kay Beauty hydrating high rich foundation",
+      "price": "900",
+      "originalPrice": 1229,
+      "discount": 25,
+      "name": "Pillya",
+      "quantity": 1
+    },
+    {
+      "id": "1754096790695",
+      "title": "Europe Girl New Eyeshadow",
+      "image": "/assests/images/eyeshadow/europegirleyeshadow.webp",
+      "description": "Europegirl Cosmetics 40 Color Eyeshadow Palette – New Cool Tone 40 gm",
+      "price": "790",
+      "originalPrice": "800",
+      "discount": "5%",
+      "name": "Pillya",
       "quantity": 1
     }
   ],
