@@ -6,7 +6,6 @@ const AdminDashboard = () => {
   const [category, setCategory] = useState("lipstick");
   const [products, setProducts] = useState([]);
   const [form, setForm] = useState({
-    title: "",
     image: "",
     description: "",
     price: "",
@@ -20,7 +19,7 @@ const AdminDashboard = () => {
 
   const fetchProducts = async () => {
     try {
-      const res = await Get(`http://localhost:8888/${category}`);
+      const res = await Get(`http://localhost:8888/products?category=${category.toLowerCase()}`);
       setProducts(res);
     } catch (error) {
       console.error("Fetch error:", error);
@@ -37,8 +36,8 @@ const AdminDashboard = () => {
   };
 
   const validateForm = () => {
-    const { title, image, description, price } = form;
-    if (!title || !image || !description || !price) {
+    const { image, description, price } = form;
+    if (!image || !description || !price) {
       setError("Please fill in all required fields.");
       return false;
     }
@@ -55,9 +54,10 @@ const AdminDashboard = () => {
     try {
       const newProduct = {
         ...form,
-        id: Date.now().toString()
+        id: Date.now().toString(),
+        category: category.toLowerCase()
       };
-      await Post(`http://localhost:8888/${category}`, newProduct);
+      await Post("http://localhost:8888/products", newProduct);
       fetchProducts();
       resetForm();
     } catch (error) {
@@ -67,7 +67,7 @@ const AdminDashboard = () => {
 
   const handleDelete = async (id) => {
     try {
-      await Delete(`http://localhost:8888/${category}/${id}`);
+      await Delete(`http://localhost:8888/products/${id}`);
       fetchProducts();
     } catch (error) {
       console.error("Delete error:", error);
@@ -84,7 +84,7 @@ const AdminDashboard = () => {
     if (!validateForm()) return;
 
     try {
-      await Put(`http://localhost:8888/${category}/${form.id}`, form);
+      await Put(`http://localhost:8888/products/${form.id}`, form);
       fetchProducts();
       resetForm();
     } catch (error) {
@@ -94,7 +94,6 @@ const AdminDashboard = () => {
 
   const resetForm = () => {
     setForm({
-      title: "",
       image: "",
       description: "",
       price: "",
@@ -139,9 +138,9 @@ const AdminDashboard = () => {
           }}
         >
           <option value="lipstick">Lipstick</option>
-          <option value="Blush">Blush</option>
-          <option value="Foundation">Foundation</option>
-          <option value="Eyeshadow">Eyeshadow</option>
+          <option value="blush">Blush</option>
+          <option value="foundation">Foundation</option>
+          <option value="eyeshadow">Eyeshadow</option>
         </select>
       </div>
 
@@ -149,7 +148,7 @@ const AdminDashboard = () => {
         <h5>{isUpdate ? "Update Product" : "Add New Product"}</h5>
         {error && <div className="alert alert-danger">{error}</div>}
         <div className="row g-3">
-          {["title", "image", "description", "price", "originalPrice", "discount"].map((field) => (
+          {["image", "description", "price", "originalPrice", "discount"].map((field) => (
             <div className="col-md-6" key={field}>
               <input
                 type="text"
@@ -182,7 +181,7 @@ const AdminDashboard = () => {
             <tr>
               <th>ID</th>
               <th>Image</th>
-              <th>Title / Description</th>
+              <th>Description</th>
               <th>Price</th>
               <th>Original</th>
               <th>Discount</th>
@@ -196,14 +195,11 @@ const AdminDashboard = () => {
                 <td>
                   <img
                     src={prod.image}
-                    alt={prod.title || prod.description}
+                    alt={prod.description}
                     width="60"
                   />
                 </td>
-                <td>
-                  <b>{prod.title || "—"}</b>
-                  <div>{prod.description}</div>
-                </td>
+                <td>{prod.description}</td>
                 <td>{prod.price}</td>
                 <td>{prod.originalPrice || "—"}</td>
                 <td>{prod.discount || "—"}%</td>

@@ -140,14 +140,15 @@
       "id": "7134"
     }
   ],
-  "lipstick": [
+  "products": [
     {
       "id": "1",
       "image": "/assests/images/lipstick/mars.avif",
       "description": "Mars Matte Lipstick Box",
       "price": 499,
       "originalPrice": 599,
-      "discount": 15
+      "discount": 15,
+      "category":"lipstick"
     },
     {
       "id": "2",
@@ -155,7 +156,8 @@
       "description": "Kay Beauty Hydra Creme Lipstick",
       "price": 236,
       "originalPrice": 239,
-      "discount": 5
+      "discount": 5,
+      "category":"lipstick"
     },
     {
       "id": "3",
@@ -163,7 +165,8 @@
       "description": "Charlotte Tilbury Matte Resolution",
       "price": 999,
       "originalPrice": 599,
-      "discount": 30
+      "discount": 30,
+      "category":"lipstick"
     },
     {
       "id": "4",
@@ -171,7 +174,8 @@
       "description": "Lakme Forever Matte Lipstick",
       "price": 319,
       "originalPrice": 375,
-      "discount": 15
+      "discount": 15,
+      "category":"lipstick"
     },
     {
       "id": "5",
@@ -179,7 +183,8 @@
       "description": "Maybelline Superstay Matte Ink",
       "price": 359,
       "originalPrice": 599,
-      "discount": 45
+      "discount": 45,
+      "category":"lipstick"
     },
     {
       "id": "6",
@@ -187,7 +192,8 @@
       "description": "M.A.C MACximal Matte Lipstick",
       "price": 2550,
       "originalPrice": 3000,
-      "discount": 15
+      "discount": 15,
+      "category":"lipstick"
     },
     {
       "id": "7",
@@ -195,7 +201,8 @@
       "description": "Nykaa creme matte lipstick",
       "price": 214,
       "originalPrice": 329,
-      "discount": 35
+      "discount": 35,
+      "category":"lipstick"
     },
     {
       "id": "8",
@@ -204,222 +211,233 @@
       "price": 269,
       "originalPrice": 300,
       "discount": 10,
-      "title": "Swiss Beauty Mac "
+      "title": "Swiss Beauty Mac ",
+      "category":"lipstick"
     },
     {
       "id": "7937",
       "title": "Dior Addict Lip Tint ",
       "image": "/assests/images/lipstick/dior lipstick.avif",
       "description": "Perfectly preety new arrival",
-      "price": "3999"
-    }
-  ],
-  "Blush": [
+      "price": "3999",
+      "category":"lipstick"
+    },
     {
-      "id": "1",
+      "id": "101",
       "image": "/assests/images/blush/nybaeblush.webp",
       "description": "Nybae pro blush+highlighter",
       "price": 229,
       "originalPrice": 399,
-      "discount": 5
+      "discount": 5,
+      "category":"blush"
     },
     {
-      "id": "2",
+      "id": "102",
       "image": "/assests/images/blush/maybellineblush.webp",
       "description": "Maybelline new york blush",
       "price": 849,
       "originalPrice": 899,
-      "discount": 15
+      "discount": 15,
+      "category":"blush"
     },
     {
-      "id": "3",
+      "id": "103",
       "image": "/assests/images/blush/lakmeblush.webp",
       "description": "Lakme Natural Blush",
       "price": 562,
       "originalPrice": 749,
-      "discount": 25
+      "discount": 25,
+      "category":"blush"
     },
     {
-      "id": "4",
+      "id": "104",
       "image": "/assests/images/blush/nybaesunset.webp",
       "description": "Nybae Sunset Skyline Blush<",
       "price": 144,
       "originalPrice": 240,
-      "discount": 40
+      "discount": 40,
+      "category":"blush"
     },
     {
-      "id": "5",
+      "id": "105",
       "image": "/assests/images/blush/marsblush.webp",
       "description": "Mars Liquid Blush Hour",
       "price": 299,
       "originalPrice": 399,
-      "discount": 25
+      "discount": 25,
+      "category":"blush"
     },
     {
-      "id": "6",
+      "id": "106",
       "image": "/assests/images/blush/insightblsh.webp",
       "description": "Insight Cosmetic blush stick",
       "price": 350,
       "originalPrice": 400,
-      "discount": 15
+      "discount": 15,
+      "category":"blush"
     },
     {
-      "id": "7",
+      "id": "107",
       "image": "/assests/images/blush/swissblush.webp",
       "description": "Swiss variant color blushes",
       "price": 562,
       "originalPrice": 749,
-      "discount": 25
+      "discount": 25,
+      "category":"blush"
     },
     {
-      "id": "8",
+      "id": "108",
       "image": "/assests/images/blush/maybellinefitme.webp",
       "description": "Maybelline new york mono blush ",
       "price": 389,
       "originalPrice": 599,
-      "discount": 35
-    }
-  ],
-  "Foundation": [
+      "discount": 35,
+      "category":"blush"
+    },
     {
-      "id": "1",
+      "id": "201",
       "image": "  /assests/images/foundation/kayfoundation.avif",
       "description": "Kay Beauty hydrating high rich foundation",
       "price": "900",
       "originalPrice": 1229,
-      "discount": 25
+      "discount": 25,
+      "category":"foundation"
     },
     {
-      "id": "2",
+      "id": "202",
       "image": "/assests/images/foundation/maybellinefoundation.avif",
       "description": "Maybelline newyork  super stay foundation",
       "price": 619,
       "originalPrice": 825,
-      "discount": 25
+      "discount": 25,
+      "category":"foundation"
     },
     {
-      "id": "3",
+      "id": "203",
       "image": "/assests/images/foundation/lakmefoundation.avif",
       "description": "Lakme Xtraordin-Airy Mousse Foundation",
       "price": 699,
       "originalPrice": 999,
-      "discount": 30
+      "discount": 30,
+      "category":"foundation"
     },
     {
-      "id": "4",
+      "id": "204",
       "image": "/assests/images/foundation/charlottefoundation.avif",
       "description": "Charlotte Tilbury Airbrush Flawless Foundation",
       "price": 4900,
       "originalPrice": 5500,
-      "discount": 35
+      "discount": 35,
+      "category":"foundation"
     },
     {
-      "id": "5",
+      "id": "205",
       "image": "/assests/images/foundation/esteelauder.avif",
       "description": "Estee Lauder rich Double Wear Foundation",
       "price": 5200,
       "originalPrice": 6999,
-      "discount": 30
+      "discount": 30,
+      "category":"foundation"
     },
     {
-      "id": "6",
+      "id": "206",
       "image": "/assests/images/foundation/hudabeauty.avif",
       "description": "Huda Beauty long-lasting Easy Blur Foundation",
       "price": 3380,
       "originalPrice": 4000,
-      "discount": 15
+      "discount": 15,
+      "category":"foundation"
     },
     {
-      "id": "7",
+      "id": "207",
       "image": "/assests/images/foundation/smashbox foundation.avif",
       "description": "Smashbox Halo Healthy Glow All-In-One",
       "price": 1710,
       "originalPrice": 1999,
-      "discount": 15
+      "discount": 15,
+      "category":"foundation"
     },
     {
-      "id": "8",
+      "id": "208",
       "image": "/assests/images/foundation/nykaafoundation.avif",
       "description": "Nykaa All Day Matte Long Wear Liquid Foundation",
       "price": 422,
       "originalPrice": 649,
-      "discount": 25
-    }
-  ],
-  "Eyeshadow": [
+      "discount": 25,
+      "category":"foundation"
+    },
     {
-      "id": "2",
+      "id": "301",
       "image": "/assests/images/eyeshadow/swissbeautyultimate.webp",
       "description": "Swiss Beauty Ultimate Eyeshadow Palette Kit – Multi ",
       "price": 383,
       "originalPrice": 425,
-      "discount": 10
+      "discount": 10,
+      "category":"eyeshadow"
     },
     {
-      "id": "3",
+      "id": "302",
       "image": "/assests/images/eyeshadow/rhodaeyeshadow.webp",
       "description": "Hilary Rhoda Perfection Eyeshadow Palette",
       "price": 383,
       "originalPrice": 425,
-      "discount": 10
+      "discount": 10,
+      "category":"eyeshadow"
     },
     {
-      "id": "4",
+      "id": "303",
       "image": "/assests/images/eyeshadow/marseyeshadow.webp",
       "description": "MARS 12 Shades Eyeshadow",
       "price": 499,
       "originalPrice": 550,
-      "discount": 15
+      "discount": 15,
+      "category":"eyeshadow"
     },
     {
-      "id": "5",
+      "id": "304",
       "image": "/assests/images/eyeshadow/swisseyeshadow.webp",
       "description": "Swiss Beauty Eyeshadow Palette",
       "price": 422,
       "originalPrice": 649,
-      "discount": 25
+      "discount": 25,
+      "category":"eyeshadow"
     },
     {
-      "id": "6",
+      "id": "305",
       "image": "/assests/images/eyeshadow/hilaryeyeshadow.webp",
       "description": "Hilary Rhoda Perfection Eyeshadow Palette",
       "price": 540,
       "originalPrice": 649,
-      "discount": 20
+      "discount": 20,
+      "category":"eyeshadow"
     },
     {
-      "id": "7",
+      "id": "306",
       "image": "/assests/images/eyeshadow/maybellineeyeshadow.webp",
       "description": "Maybelline New York Color Rivals Eyeshadow Duo",
       "price": 876,
       "originalPrice": 899,
-      "discount": 5
+      "discount": 5,
+      "category":"eyeshadow"
     },
     {
-      "id": "8",
+      "id": "307",
       "image": "/assests/images/eyeshadow/blueheaveneyeshadow.webp",
       "description": "Blue Heaven Bling 9 in 1 Eyeshadow Palette",
       "price": 391,
       "originalPrice": 449,
-      "discount": 13
+      "discount": 13,
+      "category":"eyeshadow"
     },
     {
       "id": "1754096580931",
       "title": "Europe Girl New Eyeshadow",
       "image": "/assests/images/eyeshadow/europegirleyeshadow.webp",
       "description": "Europegirl Cosmetics 40 Color Eyeshadow Palette – New Cool Tone 40 gm",
-      "price": "760",
+      "price": 760,
       "originalPrice": "800",
-      "discount": "5%"
-    },
-    {
-      "id": "1754096790695",
-      "title": "Europe Girl New Eyeshadow",
-      "image": "/assests/images/eyeshadow/europegirleyeshadow.webp",
-      "description": "Europegirl Cosmetics 40 Color Eyeshadow Palette – New Cool Tone 40 gm",
-      "price": "790",
-      "originalPrice": "800",
-      "discount": "5%"
+      "discount":5,
+      "category":"eyeshadow"
     }
   ],
   "userdashboard": [

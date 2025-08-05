@@ -11,9 +11,12 @@ const Lipstick = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    Get("http://localhost:8888/lipstick").then((res) => {
-      setLipstickData(res);
-    });
+    Get("http://localhost:8888/products").then((res) => {
+      const lipstick = res.filter((item)=>item.category === "lipstick")
+      setLipstickData(lipstick);
+    }).catch((err)=>{
+        console.log("Lipstick err=",err)
+      });
   }, []);
 
   useEffect(() => {
@@ -98,41 +101,36 @@ const Lipstick = () => {
             All Lipstick Products
           </h3>
 
-          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
             {lipstickData.map((item) => {
               const key = `${item.id}_${item.image}`;
               return (
                 <div className="col" key={key}>
-                  <div className="card h-100 shadow-sm border-0">
+                  <div className="card h-100">
                     <img
                       src={item.image}
                       className="card-img-top"
                       alt={item.description}
                       style={{ height: "220px", objectFit: "cover" }}
                     />
-                    <div className="card-body d-flex flex-column justify-content-between">
-                      <p className="text-center flex-grow-1 fw-semibold">
+                    <div className="card-body d-flex flex-column">
+                      <p
+                        className="text-center flex-grow-1"
+                        style={{ fontSize: "15px", fontWeight: 300 }}
+                      >
                         {item.description}
                       </p>
-                      <div className="d-flex justify-content-between align-items-center flex-wrap">
-                        <h5 className="text-danger fw-bold">₹{item.price}</h5>
-                        {item.originalPrice && (
-                          <div className="text-end">
-                            <p className="text-muted text-decoration-line-through mb-0 small">
-                              ₹{item.originalPrice}
-                            </p>
-                            <span className="text-success small fw-semibold">
-                              {item.discount}% off
-                            </span>
-                          </div>
-                        )}
+                      <div className="d-flex justify-content-between align-items-center">
+                        <h5>₹{item.price}/-</h5>
+                        <p className="text-muted text-decoration-line-through mb-0">
+                          ₹{item.originalPrice}
+                        </p>
+                        <span className="text-success">{item.discount}% off</span>
                       </div>
                       <button
                         className={
-                          "btn mt-3 fw-semibold " +
-                          (addedToCart[key]
-                            ? "btn-outline-danger"
-                            : "btn-danger")
+                          "btn mt-3 " +
+                          (addedToCart[key] ? "btn-outline-danger" : "btn-danger")
                         }
                         onClick={() =>
                           addedToCart[key]

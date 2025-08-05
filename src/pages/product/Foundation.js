@@ -12,9 +12,12 @@ const Foundation = () => {
 
   // Fetch foundation product data
   useEffect(() => {
-    Get("http://localhost:8888/Foundation").then((res) => {
-      setFoundationData(res);
-    });
+    Get("http://localhost:8888/products").then((res) => {
+      const foundation = res.filter((item)=>item.category === "foundation")
+      setFoundationData(foundation);
+    }).catch((err)=>{
+        console.log("Foundation err=",err)
+      });
   }, []);
 
   // Check what is already in user cart

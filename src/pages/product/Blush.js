@@ -12,9 +12,12 @@ const Blush = () => {
 
   // Fetch blush products
   useEffect(() => {
-    Get("http://localhost:8888/Blush").then((res) => {
-      setBlushData(res);
-    });
+    Get("http://localhost:8888/products").then((res) => {
+      const blush = res.filter((item)=>item.category === "blush")
+      setBlushData(blush);
+    }).catch((err)=>{
+        console.log("Blush err=",err)
+      });
   }, []);
 
   // Load user's cart data

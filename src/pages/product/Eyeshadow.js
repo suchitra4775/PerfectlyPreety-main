@@ -11,8 +11,11 @@ const Eyeshadow = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    Get("http://localhost:8888/Eyeshadow")
-      .then(res => seteyeshadowdata(res))
+    Get("http://localhost:8888/products").then((res) => {
+      const Eyeshadow = res.filter((item)=>item.category==="eyeshadow")
+      seteyeshadowdata(Eyeshadow)}).catch((err)=>{
+        console.log("Eyeshadow err=",err)
+      })
   }, [])
 
   useEffect(() => {
