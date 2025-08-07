@@ -58,6 +58,7 @@ const UserRegister = () => {
     try {
       const res = await Get(`http://localhost:8888/loginuser?email=${formData.email}`)
       if (res.length > 0) {
+        
         setErrors({ email: "Email is already registered!" })
         return
       }
