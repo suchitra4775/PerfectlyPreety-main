@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Navbar from "../components/common/Navbar";
 import Footer from "../components/common/Footer";
 import { Post } from "../utilities/HttpService (3)";
@@ -10,6 +10,8 @@ const Contact = () => {
   const subjectRef = useRef();
   const messageRef = useRef();
 
+  const [errors, setErrors] = useState({});
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -19,16 +21,40 @@ const Contact = () => {
     const subject = subjectRef.current.value.trim();
     const message = messageRef.current.value.trim();
 
-    if (!fullname || !email || !subject || !message) {
-      alert("Please fill in all required fields.");
-      return;
+    const newErrors = {};
+
+    if (!fullname) {
+     newErrors.fullname = "Full name is required";
+    } else if (fullname.length < 3) {
+      newErrors.fullname = "Name should not be less than 2 characters";
     }
 
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.match(email)) {
-      alert("Please enter a valid email address.");
-      return;
+    if (!email) {
+      newErrors.email = "Email is required";
+    } else if (!email.match(emailRegex)) {
+      newErrors.email = "Invalid email format";
     }
+
+    const phoneRegex = /^[6-9]\d{9}$/;
+    if (phone && !phone.match(phoneRegex)) {
+      newErrors.phone = "*Invalid phone number";
+    }
+
+    // Subject validation
+  if (!subject) {
+    newErrors.subject = "Subject is required";
+  } else if (subject.length <= 5) {
+    newErrors.subject = "Subject should be more than 5 characters";
+  }
+
+    // Message validation
+    if (!message) newErrors.message = "Message is required";
+
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors).length > 0) return;
 
     const formData = { fullname, email, phone, subject, message };
 
@@ -41,6 +67,8 @@ const Contact = () => {
       phoneRef.current.value = "";
       subjectRef.current.value = "";
       messageRef.current.value = "";
+
+      setErrors({});
     } catch (err) {
       console.error("Submission failed:", err);
       alert("Failed to submit message.");
@@ -73,78 +101,97 @@ const Contact = () => {
 
             <div className="col-12 col-lg-6">
               <div className="bg-white border rounded shadow-sm p-4 p-xl-5">
-                <form onSubmit={handleSubmit}>
-                  <div className="row gy-4">
-                    <div className="col-12">
-                      <label htmlFor="fullname" className="form-label">
-                        Full Name <span className="text-danger">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="fullname"
-                        name="fullname"
-                        ref={fullnameRef}
-                      />
-                    </div>
+                <form onSubmit={handleSubmit} noValidate>
+          <div className="row gy-4">
+            
+            <div className="col-12">
+              <label htmlFor="fullname" className="form-label fw-semibold">
+                Full Name <span className="text-danger">*</span>
+              </label>
+              <input
+                type="text"
+                className={`form-control ${errors.fullname ? "is-invalid" : ""}`}
+                id="fullname"
+                name="fullname"
+                ref={fullnameRef}
+                placeholder="Enter your full name"
+              />
+              {errors.fullname && <div className="invalid-feedback">{errors.fullname}</div>}
+            </div>
 
-                    <div className="col-md-6">
-                      <label htmlFor="email" className="form-label">
-                        Email <span className="text-danger">*</span>
-                      </label>
-                      <input
-                        type="email"
-                        className="form-control"
-                        id="email"
-                        name="email"
-                        ref={emailRef}
-                      />
-                    </div>
+            {/* Email */}
+            <div className="col-md-6">
+              <label htmlFor="email" className="form-label fw-semibold">
+                Email <span className="text-danger">*</span>
+              </label>
+              <input
+                type="email"
+                className={`form-control ${errors.email ? "is-invalid" : ""}`}
+                id="email"
+                name="email"
+                ref={emailRef}
+                placeholder="you@example.com"
+              />
+              {errors.email && <div className="invalid-feedback">{errors.email}</div>}
+            </div>
 
-                    <div className="col-md-6">
-                      <label htmlFor="phone" className="form-label">Phone</label>
-                      <input
-                        type="tel"
-                        className="form-control"
-                        id="phone"
-                        name="phone"
-                        ref={phoneRef}
-                      />
-                    </div>
+            {/* Phone */}
+            <div className="col-md-6">
+              <label htmlFor="phone" className="form-label fw-semibold">
+                Phone
+              </label>
+              <input
+                type="tel"
+                className={`form-control ${errors.phone ? "is-invalid" : ""}`}
+                id="phone"
+                name="phone"
+                ref={phoneRef}
+                placeholder="10-digit number"
+              />
+              {errors.phone && <div className="invalid-feedback">{errors.phone}</div>}
+            </div>
 
-                    <div className="col-12">
-                      <label htmlFor="subject" className="form-label">
-                        Subject <span className="text-danger">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="subject"
-                        name="subject"
-                        ref={subjectRef}
-                      />
-                    </div>
+            {/* Subject */}
+            <div className="col-12">
+              <label htmlFor="subject" className="form-label fw-semibold">
+                Subject <span className="text-danger">*</span>
+              </label>
+              <input
+                type="text"
+                className={`form-control ${errors.subject ? "is-invalid" : ""}`}
+                id="subject"
+                name="subject"
+                ref={subjectRef}
+                placeholder="Write a short subject"
+              />
+              {errors.subject && <div className="invalid-feedback">{errors.subject}</div>}
+            </div>
 
-                    <div className="col-12">
-                      <label htmlFor="message" className="form-label">
-                        Message <span className="text-danger">*</span>
-                      </label>
-                      <textarea
-                        className="form-control"
-                        id="message"
-                        name="message"
-                        rows="3"
-                        ref={messageRef}
-                      ></textarea>
-                    </div>
+            {/* Message */}
+            <div className="col-12">
+              <label htmlFor="message" className="form-label fw-semibold">
+                Message <span className="text-danger">*</span>
+              </label>
+              <textarea
+                className={`form-control ${errors.message ? "is-invalid" : ""}`}
+                id="message"
+                name="message"
+                rows="4"
+                ref={messageRef}
+                placeholder="Write your message here..."
+              ></textarea>
+              {errors.message && <div className="invalid-feedback">{errors.message}</div>}
+            </div>
 
-                    <div className="col-12 d-grid">
-                      <button className="btn btn-primary btn-lg" type="submit">
-                        Send Message
-                      </button>
-                    </div>
-                  </div>
-                </form>
+            {/* Submit Button */}
+            <div className="col-12 d-grid">
+              <button className="btn btn-primary btn-lg" type="submit">
+                Send Message
+              </button>
+            </div>
+          </div>
+        </form>
+
               </div>
             </div>
 

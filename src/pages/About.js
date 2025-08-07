@@ -6,22 +6,9 @@ import Footer from "../components/common/Footer";
 import { Get } from "../utilities/HttpService (3)";
 
 const About = () => {
-  const [aboutdata, setaboutdata] = useState();
-
-  useEffect(() => {
-    Get("http://localhost:8888/about").then((res) => {
-        console.log("About = ",res)
-        setaboutdata(res);
-      })
-      .catch((err) => {
-        console.log("Error detected", err);
-      });
-  }, []);
-
   return (
     <div>
-      <Navbar />
-      
+      <Navbar />     
       {/* Stylish About Section */}
       <section className="py-5" style={{ backgroundColor: "#afcfd1" }}>
         <div className="container text-center">
@@ -38,9 +25,7 @@ const About = () => {
           <h2 className="display-4 fw-bold mb-4" style={{ color: "#b03060" }}>
             Beauty begins the moment you decide to be yourself.
           </h2>
-          {aboutdata?.map((val,index) => (
-            <p key={`info-${index}`} className="lead text-dark mb-3">{val.info}</p>
-          ))}
+          <p className="lead text-dark mb-3">Since our launch, we have not only redefined the art of e-retailing beauty and personal care in India, but also have been instrumental in fostering the growth of a previously relatively nascent ecosystem. From bringing you domestic brands, international brands, luxury and prestige brands, premium brands, niche and cult brands and expert advice and videos, coupled with our understanding of the needs and preferences of the consumers,to more than 72 Luxe and On-Trend and Kiosk Stores, an ever growing online community for beauty buffs, and a Beauty Helpline, we go out of our way to give you only the very best. With 2400+, 100% authentic brands Beauty Blossom offers a well curated comprehensive selection of makeup, skincare, haircare, bath and body, fragrance, grooming appliances, personal care, and health and wellness categories.",</p>
           <Link to="/lipstick">
             <button className="btn btn-lg btn-outline-dark rounded-pill px-5 py-2">
               Shop Now
@@ -117,9 +102,7 @@ const About = () => {
             Join thousands who trust GlowMuse for clean, high-quality skincare &
             makeup.
           </p>
-          {aboutdata?.map((val,index) => (
-            <p key={`info2-${index}`} className="lead text-dark mb-3">{val.info2}</p>
-          ))}
+            <p className="lead text-dark mb-3">We're a brand that believes in empowerment. That's why, we carefully curate products from around the globe which meet every want and need there could possibly be when it comes to your makeup and skincare regime. We believe in every interpretation of beauty. Bold to subdued, quirky to crazy, everyday to glam goddess! Our aim is to celebrate every aspect of you, no matter what your style is.",</p>
           <b style={{fontSize:"20px"}}>So, go ahead and pick your faves. It's time to Rule the world, one look at a time!</b><br/><br/>
           <Link to="/lipstick">
             <button className="btn btn-dark btn-lg rounded-pill px-5 py-2">

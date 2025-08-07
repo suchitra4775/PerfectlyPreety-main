@@ -94,16 +94,6 @@
       "discount": 15
     }
   ],
-  "about": [
-    {
-      "info": "Since our launch, we have not only redefined the art of e-retailing beauty and personal care in India, but also have been instrumental in fostering the growth of a previously relatively nascent ecosystem. From bringing you domestic brands, international brands, luxury and prestige brands, premium brands, niche and cult brands and expert advice and videos, coupled with our understanding of the needs and preferences of the consumers,to more than 72 Luxe and On-Trend and Kiosk Stores, an ever growing online community for beauty buffs, and a Beauty Helpline, we go out of our way to give you only the very best. With 2400+, 100% authentic brands Beauty Blossom offers a well curated comprehensive selection of makeup, skincare, haircare, bath and body, fragrance, grooming appliances, personal care, and health and wellness categories.",
-      "id": "7b33"
-    },
-    {
-      "info2": "We're a brand that believes in empowerment. That's why, we carefully curate products from around the globe which meet every want and need there could possibly be when it comes to your makeup and skincare regime. We believe in every interpretation of beauty. Bold to subdued, quirky to crazy, everyday to glam goddess! Our aim is to celebrate every aspect of you, no matter what your style is.",
-      "id": "7134"
-    }
-  ],
   "products": [
     {
       "id": "1",
@@ -507,6 +497,14 @@
       "phone": "ssss",
       "subject": "sssss",
       "message": "ssss"
+    },
+    {
+      "id": "dea9",
+      "fullname": "as",
+      "email": "ssroyal259@gmail.com",
+      "phone": "9876543214",
+      "subject": "hi",
+      "message": "hsfsft"
     }
   ]
 }
