@@ -2,17 +2,15 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../components/common/Navbar";
 import Footer from "../components/common/Footer";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, } from "react-router-dom";
 import { Delete, Get } from "../utilities/HttpService (3)";
 
 const UserCart = () => {
   const [userCart, setUserCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
-  const navigate = useNavigate();
   const username = sessionStorage.getItem("username");
 
   useEffect(() => {
-
     Get(`http://localhost:8888/userdashboard?name=${username}`)
       .then((res) => {
         const cartWithQty = res.map((item) => ({
@@ -26,7 +24,7 @@ const UserCart = () => {
         console.error("Error fetching cart:", err);
         alert("Error loading cart.");
       });
-  }, [username, navigate]);
+  }, [username]);
 
   const calculateTotal = (items) => {
     const total = items.reduce(
@@ -36,17 +34,32 @@ const UserCart = () => {
     setTotalPrice(total);
   };
 
-  const updateQuantity = (id, image, delta) => {
-    const updatedCart = userCart.map((item) => {
-      if (item.id === id && item.image === image) {
-        const newQty = Math.max(1, item.quantity + delta);
-        return { ...item, quantity: newQty };
-      }
-      return item;
+ const updateQuantity = (id, image, delta) => {
+  const itemToUpdate = userCart.find((item) => item.id === id && item.image === image);
+  if (!itemToUpdate) return;
+
+  const newQty = Math.max(1, itemToUpdate.quantity + delta);
+
+  axios
+    .put(`http://localhost:8888/userdashboard/${itemToUpdate.id}`, {
+      ...itemToUpdate,
+      quantity: newQty,
+    })
+    .then(() => {
+      const updatedCart = userCart.map((item) =>
+        item.id === id && item.image === image
+          ? { ...item, quantity: newQty }
+          : item
+      );
+      setUserCart(updatedCart);
+      calculateTotal(updatedCart);
+    })
+    .catch((err) => {
+      console.error("Quantity update failed:", err);
+      alert("Failed to update quantity.");
     });
-    setUserCart(updatedCart);
-    calculateTotal(updatedCart);
-  };
+};
+
 
   const removeFromCart = (id, image) => {
     const target = userCart.find(
@@ -54,17 +67,17 @@ const UserCart = () => {
     );
     if (!target) return;
 
-    // Remove by actual item ID in json-server
     Delete(`http://localhost:8888/userdashboard/${target.id}`)
       .then(() => {
-        const updatedCart = userCart.filter(
-          (item) => !(item.id === id && item.image === image)
-        );
-        const update = window.confirm("Are you sure you want to remove?")
-        if(update){
-        setUserCart(updatedCart);
-        calculateTotal(updatedCart);
-  }})
+        const update = window.confirm("Are you sure you want to remove?");
+        if (update) {
+          const updatedCart = userCart.filter(
+            (item) => !(item.id === id && item.image === image)
+          );
+          setUserCart(updatedCart);
+          calculateTotal(updatedCart);
+        }
+      })
       .catch((err) => {
         console.error("Remove failed:", err);
         alert("Failed to remove item.");
@@ -74,28 +87,32 @@ const UserCart = () => {
   return (
     <div style={{ background: "#fffafc", minHeight: "100vh" }}>
       <Navbar />
-
       <div className="container py-5">
-        <h2
-          className="text-center mb-4"
-          style={{ color: "#d63384", fontFamily: "Poppins, sans-serif" }}
-        >
+        <h2 className="text-center mb-4" style={{ color: "#d63384", fontFamily: "Poppins, sans-serif" }}>
           Your Shopping Cart
         </h2>
 
-        {Array.isArray(userCart) && userCart.length === 0 ? (
-          <div style={{textAlign:"center"}}><p className=" text-muted">
-            Cart is empty. Add something you love 💖
-          </p><Link to="/blush" style={{backgroundColor:"#dd6da5ff", padding:"7px 9px", borderRadius:"25px", color:"white", textDecoration:"none"}}>Buy products</Link>
+        {userCart.length === 0 ? (
+          <div style={{ textAlign: "center" }}>
+            <p className="text-muted">Cart is empty. Add something you love 💖</p>
+            <Link
+              to="/blush"
+              style={{
+                backgroundColor: "#dd6da5ff",
+                padding: "7px 9px",
+                borderRadius: "25px",
+                color: "white",
+                textDecoration: "none",
+              }}
+            >
+              Buy products
+            </Link>
           </div>
         ) : (
           <div className="table-responsive">
             <table
               className="table align-middle table-borderless shadow-sm"
-              style={{
-                background: "#ffffff",
-                borderRadius: "12px",
-              }}
+              style={{ background: "#ffffff", borderRadius: "12px" }}
             >
               <thead style={{ background: "#fce4ec", color: "#6d2177" }}>
                 <tr>
@@ -114,10 +131,7 @@ const UserCart = () => {
                         src={item.image}
                         alt={item.description}
                         width="80"
-                        style={{
-                          borderRadius: "10px",
-                          objectFit: "contain",
-                        }}
+                        style={{ borderRadius: "10px", objectFit: "contain" }}
                       />
                     </td>
                     <td className="fw-semibold">{item.description}</td>
@@ -154,24 +168,18 @@ const UserCart = () => {
 
             <div className="text-end mt-4">
               <h4 style={{ color: "#333" }}>
-                Total:{" "}
-                <span className="text-success">
-                  ₹{totalPrice.toFixed(2)}
-                </span>
+                Total: <span className="text-success">₹{totalPrice.toFixed(2)}</span>
               </h4>
               <Link
-  to="/checkout"
-  state={{ cartItems: userCart, total: totalPrice }}
-  className="btn btn-dark rounded-pill mt-2 px-4"
->
-  Checkout
-</Link>
-
+                to="/checkout"
+                className="btn btn-dark rounded-pill mt-2 px-4"
+              >
+                Checkout
+              </Link>
             </div>
           </div>
         )}
       </div>
-
       <Footer />
     </div>
   );

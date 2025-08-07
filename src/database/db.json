@@ -6,71 +6,35 @@
       "id": "5bd9",
       "name": "Suhani",
       "contact": "8788994706",
-      "dob": "2005-09-25",
-      "gender": "Female"
+      "gender": "Female",
+      "address": "Wagholi, Pune"
     },
     {
       "id": "d727",
       "name": "Tanvi",
       "email": "tanvi16@gmail.com",
       "contact": "985437902",
-      "dob": "2025-07-01",
       "gender": "Female",
-      "password": "t123"
+      "password": "t123",
+      "address": "Bungalow 5, Baner, Pune"
     },
     {
       "id": "e53c",
       "name": "Ritesh",
       "email": "ritesh@gmail.com",
       "contact": "9876543212",
-      "dob": "2025-07-08",
       "gender": "Male",
-      "password": "r123"
-    },
-    {
-      "id": "a85a",
-      "name": "shweta",
-      "email": "shweta@gmail.com",
-      "contact": "shweta@123",
-      "dob": "2025-06-04",
-      "gender": "Female",
-      "password": "shweta@123"
-    },
-    {
-      "id": "e3f8",
-      "name": "Manjunath",
-      "email": "manjunathd397@gmail.com",
-      "contact": "7767096471",
-      "dob": "2025-08-14",
-      "gender": "Male",
-      "password": "Manju@123"
-    },
-    {
-      "id": "f679",
-      "name": "Komal",
-      "email": "komal@gmail.com",
-      "contact": "9876576543",
-      "dob": "2004-06-10",
-      "gender": "Female",
-      "password": "Komal12"
+      "password": "r123",
+      "address": " Gulmohar Residency, Wakad, Pune"
     },
     {
       "id": "feff",
       "name": "Divya",
       "email": "divya12@gmail.com",
       "contact": "8765432190",
-      "dob": "2005-07-15",
       "gender": "Female",
-      "password": "divya123"
-    },
-    {
-      "id": "1a42",
-      "name": "Pillya",
-      "email": "pillya@gmail.com",
-      "contact": "8007160912",
-      "dob": "2025-05-28",
-      "gender": "Male",
-      "password": "pillya12"
+      "password": "divya123",
+      "address": "Hadapsar,Pune"
     }
   ],
   "loginadmin": [
@@ -148,7 +112,7 @@
       "price": 499,
       "originalPrice": 599,
       "discount": 15,
-      "category":"lipstick"
+      "category": "lipstick"
     },
     {
       "id": "2",
@@ -157,7 +121,7 @@
       "price": 236,
       "originalPrice": 239,
       "discount": 5,
-      "category":"lipstick"
+      "category": "lipstick"
     },
     {
       "id": "3",
@@ -166,7 +130,7 @@
       "price": 999,
       "originalPrice": 599,
       "discount": 30,
-      "category":"lipstick"
+      "category": "lipstick"
     },
     {
       "id": "4",
@@ -175,7 +139,7 @@
       "price": 319,
       "originalPrice": 375,
       "discount": 15,
-      "category":"lipstick"
+      "category": "lipstick"
     },
     {
       "id": "5",
@@ -184,7 +148,7 @@
       "price": 359,
       "originalPrice": 599,
       "discount": 45,
-      "category":"lipstick"
+      "category": "lipstick"
     },
     {
       "id": "6",
@@ -193,7 +157,7 @@
       "price": 2550,
       "originalPrice": 3000,
       "discount": 15,
-      "category":"lipstick"
+      "category": "lipstick"
     },
     {
       "id": "7",
@@ -202,7 +166,7 @@
       "price": 214,
       "originalPrice": 329,
       "discount": 35,
-      "category":"lipstick"
+      "category": "lipstick"
     },
     {
       "id": "8",
@@ -212,7 +176,7 @@
       "originalPrice": 300,
       "discount": 10,
       "title": "Swiss Beauty Mac ",
-      "category":"lipstick"
+      "category": "lipstick"
     },
     {
       "id": "7937",
@@ -220,7 +184,7 @@
       "image": "/assests/images/lipstick/dior lipstick.avif",
       "description": "Perfectly preety new arrival",
       "price": "3999",
-      "category":"lipstick"
+      "category": "lipstick"
     },
     {
       "id": "101",
@@ -229,7 +193,7 @@
       "price": 229,
       "originalPrice": 399,
       "discount": 5,
-      "category":"blush"
+      "category": "blush"
     },
     {
       "id": "102",
@@ -238,7 +202,7 @@
       "price": 849,
       "originalPrice": 899,
       "discount": 15,
-      "category":"blush"
+      "category": "blush"
     },
     {
       "id": "103",
@@ -247,7 +211,7 @@
       "price": 562,
       "originalPrice": 749,
       "discount": 25,
-      "category":"blush"
+      "category": "blush"
     },
     {
       "id": "104",
@@ -256,7 +220,7 @@
       "price": 144,
       "originalPrice": 240,
       "discount": 40,
-      "category":"blush"
+      "category": "blush"
     },
     {
       "id": "105",
@@ -265,7 +229,7 @@
       "price": 299,
       "originalPrice": 399,
       "discount": 25,
-      "category":"blush"
+      "category": "blush"
     },
     {
       "id": "106",
@@ -274,7 +238,7 @@
       "price": 350,
       "originalPrice": 400,
       "discount": 15,
-      "category":"blush"
+      "category": "blush"
     },
     {
       "id": "107",
@@ -283,7 +247,7 @@
       "price": 562,
       "originalPrice": 749,
       "discount": 25,
-      "category":"blush"
+      "category": "blush"
     },
     {
       "id": "108",
@@ -292,7 +256,7 @@
       "price": 389,
       "originalPrice": 599,
       "discount": 35,
-      "category":"blush"
+      "category": "blush"
     },
     {
       "id": "201",
@@ -301,7 +265,7 @@
       "price": "900",
       "originalPrice": 1229,
       "discount": 25,
-      "category":"foundation"
+      "category": "foundation"
     },
     {
       "id": "202",
@@ -310,7 +274,7 @@
       "price": 619,
       "originalPrice": 825,
       "discount": 25,
-      "category":"foundation"
+      "category": "foundation"
     },
     {
       "id": "203",
@@ -319,7 +283,7 @@
       "price": 699,
       "originalPrice": 999,
       "discount": 30,
-      "category":"foundation"
+      "category": "foundation"
     },
     {
       "id": "204",
@@ -328,7 +292,7 @@
       "price": 4900,
       "originalPrice": 5500,
       "discount": 35,
-      "category":"foundation"
+      "category": "foundation"
     },
     {
       "id": "205",
@@ -337,7 +301,7 @@
       "price": 5200,
       "originalPrice": 6999,
       "discount": 30,
-      "category":"foundation"
+      "category": "foundation"
     },
     {
       "id": "206",
@@ -346,7 +310,7 @@
       "price": 3380,
       "originalPrice": 4000,
       "discount": 15,
-      "category":"foundation"
+      "category": "foundation"
     },
     {
       "id": "207",
@@ -355,7 +319,7 @@
       "price": 1710,
       "originalPrice": 1999,
       "discount": 15,
-      "category":"foundation"
+      "category": "foundation"
     },
     {
       "id": "208",
@@ -364,7 +328,7 @@
       "price": 422,
       "originalPrice": 649,
       "discount": 25,
-      "category":"foundation"
+      "category": "foundation"
     },
     {
       "id": "301",
@@ -373,7 +337,7 @@
       "price": 383,
       "originalPrice": 425,
       "discount": 10,
-      "category":"eyeshadow"
+      "category": "eyeshadow"
     },
     {
       "id": "302",
@@ -382,7 +346,7 @@
       "price": 383,
       "originalPrice": 425,
       "discount": 10,
-      "category":"eyeshadow"
+      "category": "eyeshadow"
     },
     {
       "id": "303",
@@ -391,7 +355,7 @@
       "price": 499,
       "originalPrice": 550,
       "discount": 15,
-      "category":"eyeshadow"
+      "category": "eyeshadow"
     },
     {
       "id": "304",
@@ -400,7 +364,7 @@
       "price": 422,
       "originalPrice": 649,
       "discount": 25,
-      "category":"eyeshadow"
+      "category": "eyeshadow"
     },
     {
       "id": "305",
@@ -409,7 +373,7 @@
       "price": 540,
       "originalPrice": 649,
       "discount": 20,
-      "category":"eyeshadow"
+      "category": "eyeshadow"
     },
     {
       "id": "306",
@@ -418,7 +382,7 @@
       "price": 876,
       "originalPrice": 899,
       "discount": 5,
-      "category":"eyeshadow"
+      "category": "eyeshadow"
     },
     {
       "id": "307",
@@ -427,7 +391,7 @@
       "price": 391,
       "originalPrice": 449,
       "discount": 13,
-      "category":"eyeshadow"
+      "category": "eyeshadow"
     },
     {
       "id": "1754096580931",
@@ -436,104 +400,89 @@
       "description": "Europegirl Cosmetics 40 Color Eyeshadow Palette – New Cool Tone 40 gm",
       "price": 760,
       "originalPrice": "800",
-      "discount":5,
-      "category":"eyeshadow"
+      "discount": 5,
+      "category": "eyeshadow"
     }
   ],
   "userdashboard": [
     {
-      "id": "6",
-      "image": "/assests/images/eyeshadow/hilaryeyeshadow.webp",
-      "description": "Hilary Rhoda Perfection Eyeshadow Palette",
-      "price": 540,
-      "originalPrice": 649,
-      "discount": 20,
-      "name": "Manjunath"
-    },
-    {
-      "id": "2",
-      "image": "/assests/images/lipstick/Kayhydralipstick.avif",
-      "description": "Kay Beauty Hydra Creme Lipstick",
-      "price": 236,
-      "originalPrice": 239,
-      "discount": 5,
-      "name": "Divya",
-      "quantity": 1
-    },
-    {
-      "id": "1",
-      "image": "/assests/images/blush/nybaeblush.webp",
-      "description": "Nybae pro blush+highlighter",
-      "price": 229,
-      "originalPrice": 399,
-      "discount": 5,
-      "name": "Divya",
-      "quantity": 1
-    },
-    {
-      "id": "2",
-      "image": "/assests/images/foundation/maybellinefoundation.avif",
-      "description": "Maybelline newyork  super stay foundation",
-      "price": 619,
-      "originalPrice": 825,
+      "id": "103",
+      "image": "/assests/images/blush/lakmeblush.webp",
+      "description": "Lakme Natural Blush",
+      "price": 562,
+      "originalPrice": 749,
       "discount": 25,
-      "name": "Divya",
-      "quantity": 1
-    },
-    {
-      "id": "3",
-      "image": "/assests/images/eyeshadow/rhodaeyeshadow.webp",
-      "description": "Hilary Rhoda Perfection Eyeshadow Palette",
-      "price": 383,
-      "originalPrice": 425,
-      "discount": 10,
-      "name": "Divya",
-      "quantity": 1
-    },
-    {
-      "id": "8",
-      "image": "/assests/images/lipstick/swiss.avif",
-      "description": "Swiss Beauty Mac",
-      "price": 269,
-      "originalPrice": 300,
-      "discount": 10,
-      "title": "Swiss Beauty Mac ",
-      "name": "Pillya",
-      "quantity": 1
-    },
-    {
-      "id": "1",
-      "image": "/assests/images/blush/nybaeblush.webp",
-      "description": "Nybae pro blush+highlighter",
-      "price": 229,
-      "originalPrice": 399,
-      "discount": 5,
-      "name": "Pillya",
-      "quantity": 1
-    },
-    {
-      "id": "1",
-      "image": "  /assests/images/foundation/kayfoundation.avif",
-      "description": "Kay Beauty hydrating high rich foundation",
-      "price": "900",
-      "originalPrice": 1229,
-      "discount": 25,
-      "name": "Pillya",
-      "quantity": 1
-    },
-    {
-      "id": "1754096790695",
-      "title": "Europe Girl New Eyeshadow",
-      "image": "/assests/images/eyeshadow/europegirleyeshadow.webp",
-      "description": "Europegirl Cosmetics 40 Color Eyeshadow Palette – New Cool Tone 40 gm",
-      "price": "790",
-      "originalPrice": "800",
-      "discount": "5%",
-      "name": "Pillya",
+      "category": "blush",
+      "name": "Suhani",
       "quantity": 1
     }
   ],
-  "orderItems":[],
+  "orderItems": [
+    {
+      "id": "6ab5",
+      "name": "Suhani",
+      "email": null,
+      "product": "Suhani",
+      "quantity": 2,
+      "price": 288,
+      "mode": "COD",
+      "deliveryDate": "2025-08-07"
+    },
+    {
+      "id": "3827",
+      "name": "Suhani",
+      "email": null,
+      "product": "Suhani",
+      "quantity": 1,
+      "price": 849,
+      "mode": "COD",
+      "deliveryDate": "2025-08-07"
+    },
+    {
+      "id": "1721",
+      "name": "Suhani",
+      "email": null,
+      "product": "Suhani",
+      "quantity": 1,
+      "price": 562,
+      "mode": "Online",
+      "deliveryDate": "2025-08-07",
+      "address": "N/A"
+    },
+    {
+      "id": "9c68",
+      "name": "Suhani",
+      "email": null,
+      "product": "Suhani",
+      "quantity": 1,
+      "price": 4900,
+      "mode": "Online",
+      "deliveryDate": "2025-08-07",
+      "address": "N/A"
+    },
+    {
+      "id": "b447",
+      "name": "Suhani",
+      "email": null,
+      "product": "Suhani",
+      "quantity": 1,
+      "price": 849,
+      "mode": "Home Delivery",
+      "deliveryDate": "2025-08-07",
+      "address": "wagholi"
+    },
+    {
+      "id": "4df9",
+      "name": "Suhani",
+      "email": null,
+      "product": "Suhani",
+      "quantity": 1,
+      "price": 144,
+      "mode": "Home Delivery",
+      "deliveryDate": "2025-08-07",
+      "address": "wagholi"
+    }
+  ],
   "contactdata": [
     {
       "id": "d34c",
