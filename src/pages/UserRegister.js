@@ -10,7 +10,8 @@ const UserRegister = () => {
     contact: "",
     dob: "",
     gender: "",
-    password: ""
+    password: "",
+    address: ""
   })
 
   const [errors, setErrors] = useState({})
@@ -32,7 +33,7 @@ const UserRegister = () => {
     if (!formData.name.trim()) newErrors.name = "Name is required"
     if (!formData.email) newErrors.email = "Email is required"
     else if (!emailRegex.test(formData.email)) newErrors.email = "Invalid email format"
-    
+
     if (!formData.password) newErrors.password = "Password is required"
     else if (!passRegex.test(formData.password)) newErrors.password = "Password must have at least 6 characters, a letter and a number"
 
@@ -40,8 +41,8 @@ const UserRegister = () => {
     else if (!contactRegex.test(formData.contact)) newErrors.contact = "Contact must be 10 digits"
 
     if (!formData.dob) newErrors.dob = "Date of birth is required"
-
     if (!formData.gender) newErrors.gender = "Please select a gender"
+    if (!formData.address.trim()) newErrors.address = "Address is required"
 
     return newErrors
   }
@@ -58,7 +59,6 @@ const UserRegister = () => {
     try {
       const res = await Get(`http://localhost:8888/loginuser?email=${formData.email}`)
       if (res.length > 0) {
-        
         setErrors({ email: "Email is already registered!" })
         return
       }
@@ -94,7 +94,7 @@ const UserRegister = () => {
             Sign Up to PrettyCosmetics
           </h3>
           <form onSubmit={handleSubmit}>
-            {(() => { if (errors.name) return <p className="text-danger">{errors.name}</p> })()}
+            {errors.name && <p className="text-danger">{errors.name}</p>}
             <input
               type="text"
               name="name"
@@ -105,7 +105,7 @@ const UserRegister = () => {
               style={{ fontFamily: "Cursive" }}
             />
 
-            {(() => { if (errors.email) return <p className="text-danger">{errors.email}</p> })()}
+            {errors.email && <p className="text-danger">{errors.email}</p>}
             <input
               type="email"
               name="email"
@@ -116,7 +116,7 @@ const UserRegister = () => {
               style={{ fontFamily: "Cursive" }}
             />
 
-            {(() => { if (errors.password) return <p className="text-danger">{errors.password}</p> })()}
+            {errors.password && <p className="text-danger">{errors.password}</p>}
             <input
               type="password"
               name="password"
@@ -127,7 +127,7 @@ const UserRegister = () => {
               style={{ fontFamily: "Cursive" }}
             />
 
-            {(() => { if (errors.contact) return <p className="text-danger">{errors.contact}</p> })()}
+            {errors.contact && <p className="text-danger">{errors.contact}</p>}
             <input
               type="text"
               name="contact"
@@ -138,7 +138,7 @@ const UserRegister = () => {
               style={{ fontFamily: "Cursive" }}
             />
 
-            {(() => { if (errors.dob) return <p className="text-danger">{errors.dob}</p> })()}
+            {errors.dob && <p className="text-danger">{errors.dob}</p>}
             <input
               type="date"
               name="dob"
@@ -148,7 +148,7 @@ const UserRegister = () => {
               style={{ fontFamily: "Cursive" }}
             />
 
-            {(() => { if (errors.gender) return <p className="text-danger">{errors.gender}</p> })()}
+            {errors.gender && <p className="text-danger">{errors.gender}</p>}
             <select
               name="gender"
               className="form-select mb-3"
@@ -166,6 +166,16 @@ const UserRegister = () => {
               <option value="Male">Male</option>
               <option value="Other">Other</option>
             </select>
+
+            {errors.address && <p className="text-danger">{errors.address}</p>}
+            <textarea
+              name="address"
+              placeholder="Enter your full address"
+              className="form-control mb-3"
+              value={formData.address}
+              onChange={handleChange}
+              style={{ fontFamily: "Cursive" }}
+            />
 
             <button
               type="submit"

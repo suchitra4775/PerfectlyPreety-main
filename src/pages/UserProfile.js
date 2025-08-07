@@ -63,8 +63,8 @@ const UserProfile = () => {
                 Welcome, {userData.name} 👋</h4>
             <p><strong>Email:</strong> {userData.email}</p>
             <p><strong>Phone:</strong> {userData.contact || "N/A"}</p>
-            <p><strong>Date of Birth:</strong> {userData.dob || "N/A"}</p>
             <p><strong>Gender:</strong> {userData.gender || "N/A"}</p>
+            <p><strong>Address:</strong> {userData.address || "N/A"}</p>
 
             <button className="btn btn-danger mt-3" onClick={handleLogout}>
               Logout

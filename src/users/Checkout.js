@@ -1,63 +1,61 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Navbar from "../components/common/Navbar";
-import Footer from "../components/common/Footer";
-import { Get, Post , Delete} from '../utilities/HttpService (3)'
+import React, { useEffect, useState, } from 'react';
+import axios from 'axios';
+import { useNavigate ,Link} from 'react-router-dom';
+import Navbar from '../components/common/Navbar';
+import Footer from '../components/common/Footer';
 
 const Checkout = () => {
-  const navigate = useNavigate();
-  const username = sessionStorage.getItem("username");
-
   const [cartItems, setCartItems] = useState([]);
-  const [total, setTotal] = useState(0);
-  const [deliveryMode, setDeliveryMode] = useState("Home Delivery");
+  const [deliveryMode, setDeliveryMode] = useState('');
+  const [address, setAddress] = useState('');
+  const navigate = useNavigate();
+
+  const name = sessionStorage.getItem('username');
+  const email = sessionStorage.getItem('useremail');
 
   useEffect(() => {
-    if (!username) {
-      alert("Please login to proceed.");
-      navigate("/login");
-      return;
-    }
+    axios.get(`http://localhost:8888/userdashboard?username=${name}`)
+      .then((res) => setCartItems(res.data))
+      .catch((err) => console.error(err));
+  }, [name]);
 
-    const fetchCartItems = async () => {
-      try {
-        const res = await Get(`http://localhost:8888/userdashboard?name=${username}`);
-        setCartItems(res.data);
+  const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-        const calculatedTotal = res.data.reduce((sum, item) => {
-          return sum + item.price * item.quantity;
-        }, 0);
-        setTotal(calculatedTotal);
-      } catch (err) {
-        console.error("Error fetching cart:", err);
-      }
-    };
-
-    fetchCartItems();
-  }, [username, navigate]);
+  const handleModeChange = (e) => {
+    const mode = e.target.value;
+    setDeliveryMode(mode);
+  };
 
   const handlePlaceOrder = async () => {
-    if (!cartItems.length) {
-      alert("Your cart is empty!");
-      return;
-    }
-
-    const orderData = {
-      username,
-      deliveryMode,
-      orderDate: new Date().toISOString(),
-      items: cartItems,
-      total,
-    };
+    const deliveryDate = new Date().toISOString().split('T')[0]; // today's date
 
     try {
-      await Post("http://localhost:8888/orderItems", orderData);
-      await Delete(`http://localhost:8888/userdashboard?name=${username}`);
-      alert("✅ Your order has been placed successfully!");
-      navigate("/");
-    } catch (error) {
-      console.error("Error placing order:", error);
-      alert("Something went wrong. Please try again.");
+      const orders = cartItems.map((item) =>
+        axios.post('http://localhost:8888/orderItems', {
+          name,
+          email,
+          product: item.name,
+          quantity: item.quantity,
+          price: item.price * item.quantity,
+          mode: deliveryMode,
+          deliveryDate,
+          address: deliveryMode === 'Home Delivery' ? address : 'N/A'
+        })
+      );
+
+      await Promise.all(orders);
+
+      const deletions = cartItems.map((item) =>
+        axios.delete(`http://localhost:8888/userdashboard/${item.id}`)
+      );
+
+      await Promise.all(deletions);
+
+      alert('Order placed successfully!');
+      navigate('/userdashboard');
+    } catch (err) {
+      console.error('Order placement failed:', err);
+      alert('Something went wrong while placing the order.');
     }
   };
 
@@ -68,7 +66,7 @@ const Checkout = () => {
         <h3>🧾 Checkout Summary</h3>
 
         {cartItems.length === 0 ? (
-          <div className="text-center">
+          <div className="text-center mt-5">
             <p>No items in cart.</p>
             <button className="btn btn-primary" onClick={() => navigate("/")}>
               Go to Home
@@ -109,28 +107,55 @@ const Checkout = () => {
               <select
                 className="form-select"
                 value={deliveryMode}
-                onChange={(e) => setDeliveryMode(e.target.value)}
+                onChange={handleModeChange}
               >
-                <option>Home Delivery</option>
-                <option>Self Pickup</option>
+                <option value="">Select Mode</option>
+                <option value="Home Delivery">Home Delivery</option>
+                <option value="Self Pickup">Self Pickup</option>
+                <option value="Online">Online</option>
               </select>
             </div>
 
+            {/* Address box if Home Delivery */}
+            {deliveryMode === 'Home Delivery' && (
+              <div className="mt-3">
+                <label className="form-label fw-bold">Address:</label>
+                <textarea
+                  className="form-control"
+                  rows="3"
+                  placeholder="Enter your delivery address"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                />
+              </div>
+            )}
+
             {/* QR and Place Order */}
             <div className="text-center mt-5">
-              <h5>Scan & Pay using UPI</h5>
-              <img
-                src="/assests/images/Logo/qrimage.jpg"
-                alt="QR Code"
-                style={{ width: "400px", margin: "20px auto", display: "block" }}
-              />
+              {deliveryMode === 'Online' && (
+                <>
+                  <h5>Scan & Pay using UPI</h5>
+                  <img
+                    src="/assests/images/Logo/qrimage.jpg"
+                    alt="QR Code"
+                    style={{ width: "400px", margin: "20px auto", display: "block" }}
+                  />
+                </>
+              )}
+              {deliveryMode === 'Self Pickup' && (
+                <div style={{textAlign:"start", marginTop:"-20px"}}>
+                <p style={{color:"crimson",fontWeight:700,fontSize:"20px"}}>Perfectly Preety Shop Address:-</p>
+                <p style={{wordSpacing:"2px", fontSize:"18px", color:"#4a4749ff" }}>Sai crystal society, B-wing,<br/>Wagholi, Pune-412207<br/><b>Contact: </b>+91 8788994706</p>
+                </div>
+              )}
+
               <button className="btn btn-success mt-3" onClick={handlePlaceOrder}>
                 ✅ Place Order
               </button>
               <br /><br />
-              <button className="btn btn-outline-secondary" onClick={() => navigate("/")}>
+              <Link to="/"><button className="btn btn-outline-secondary">
                 Back to Home 🏠
-              </button>
+              </button></Link>
             </div>
           </>
         )}
