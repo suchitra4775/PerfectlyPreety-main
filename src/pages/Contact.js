@@ -1,32 +1,46 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useRef } from "react";
 import Navbar from "../components/common/Navbar";
 import Footer from "../components/common/Footer";
 import { Post } from "../utilities/HttpService (3)";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    fullname: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: ""
-  });
-
-  const handleChange = (e) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
-  };
+  const fullnameRef = useRef();
+  const emailRef = useRef();
+  const phoneRef = useRef();
+  const subjectRef = useRef();
+  const messageRef = useRef();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const fullname = fullnameRef.current.value.trim();
+    const email = emailRef.current.value.trim();
+    const phone = phoneRef.current.value.trim();
+    const subject = subjectRef.current.value.trim();
+    const message = messageRef.current.value.trim();
+
+    if (!fullname || !email || !subject || !message) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.match(email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    const formData = { fullname, email, phone, subject, message };
+
     try {
       await Post("http://localhost:8888/contactdata", formData);
       alert("Message submitted successfully!");
-      setFormData({ fullname: "", email: "", phone: "", subject: "", message: "" });
+
+      fullnameRef.current.value = "";
+      emailRef.current.value = "";
+      phoneRef.current.value = "";
+      subjectRef.current.value = "";
+      messageRef.current.value = "";
     } catch (err) {
       console.error("Submission failed:", err);
       alert("Failed to submit message.");
@@ -70,9 +84,7 @@ const Contact = () => {
                         className="form-control"
                         id="fullname"
                         name="fullname"
-                        value={formData.fullname}
-                        onChange={handleChange}
-                        required
+                        ref={fullnameRef}
                       />
                     </div>
 
@@ -85,9 +97,7 @@ const Contact = () => {
                         className="form-control"
                         id="email"
                         name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
+                        ref={emailRef}
                       />
                     </div>
 
@@ -98,8 +108,7 @@ const Contact = () => {
                         className="form-control"
                         id="phone"
                         name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
+                        ref={phoneRef}
                       />
                     </div>
 
@@ -112,9 +121,7 @@ const Contact = () => {
                         className="form-control"
                         id="subject"
                         name="subject"
-                        value={formData.subject}
-                        onChange={handleChange}
-                        required
+                        ref={subjectRef}
                       />
                     </div>
 
@@ -127,9 +134,7 @@ const Contact = () => {
                         id="message"
                         name="message"
                         rows="3"
-                        value={formData.message}
-                        onChange={handleChange}
-                        required
+                        ref={messageRef}
                       ></textarea>
                     </div>
 
@@ -142,6 +147,7 @@ const Contact = () => {
                 </form>
               </div>
             </div>
+
           </div>
         </div>
       </section>
