@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate ,Link} from 'react-router-dom';
 import Navbar from '../components/common/Navbar';
 import Footer from '../components/common/Footer';
+import { Delete, Get } from '../utilities/HttpService (3)';
 
 const Checkout = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -14,8 +15,8 @@ const Checkout = () => {
   const email = sessionStorage.getItem('useremail');
 
   useEffect(() => {
-    axios.get(`http://localhost:8888/userdashboard?username=${name}`)
-      .then((res) => setCartItems(res.data))
+    Get(`http://localhost:8888/userdashboard?username=${name}`)
+      .then((res) => setCartItems(res))
       .catch((err) => console.error(err));
   }, [name]);
 
@@ -46,13 +47,13 @@ const Checkout = () => {
       await Promise.all(orders);
 
       const deletions = cartItems.map((item) =>
-        axios.delete(`http://localhost:8888/userdashboard/${item.id}`)
+        Delete(`http://localhost:8888/userdashboard/${item.id}`)
       );
 
       await Promise.all(deletions);
 
       alert('Order placed successfully!');
-      navigate('/userdashboard');
+      navigate('/');
     } catch (err) {
       console.error('Order placement failed:', err);
       alert('Something went wrong while placing the order.');

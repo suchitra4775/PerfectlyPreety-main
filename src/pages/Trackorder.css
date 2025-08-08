@@ -1,0 +1,19 @@
+.table {
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #fff0f5;
+}
+
+.table thead th {
+  background-color: #f8c9d4;
+  color: #000;
+}
+
+.table tbody td {
+  vertical-align: middle;
+}
+
+.badge.bg-success {
+  background-color: #d63384 !important;
+  font-weight: 500;
+}

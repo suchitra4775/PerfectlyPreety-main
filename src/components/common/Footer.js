@@ -59,9 +59,8 @@ const Footer = () => {
             </p>
             <p>
               <Link to="https://www.google.com/maps?q=123+Beauty+Lane,+Glamour+City,+Maharashtra+411001"
-                target="_blank"
-              >
-                <h4>📍 View on Map</h4>
+                target="_blank">
+                📍 View on Map
               </Link>
             </p>
           </div>

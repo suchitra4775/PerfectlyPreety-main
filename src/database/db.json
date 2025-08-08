@@ -394,19 +394,7 @@
       "category": "eyeshadow"
     }
   ],
-  "userdashboard": [
-    {
-      "id": "103",
-      "image": "/assests/images/blush/lakmeblush.webp",
-      "description": "Lakme Natural Blush",
-      "price": 562,
-      "originalPrice": 749,
-      "discount": 25,
-      "category": "blush",
-      "name": "Suhani",
-      "quantity": 1
-    }
-  ],
+  "userdashboard": [],
   "orderItems": [
     {
       "id": "6ab5",
@@ -471,6 +459,28 @@
       "mode": "Home Delivery",
       "deliveryDate": "2025-08-07",
       "address": "wagholi"
+    },
+    {
+      "id": "fde0",
+      "name": "Suhani",
+      "email": null,
+      "product": "Suhani",
+      "quantity": 1,
+      "price": 562,
+      "mode": "Home Delivery",
+      "deliveryDate": "2025-08-08",
+      "address": "Wagholi pune"
+    },
+    {
+      "id": "7e6d",
+      "name": "Suhani",
+      "email": null,
+      "product": "Suhani",
+      "quantity": 2,
+      "price": 844,
+      "mode": "Home Delivery",
+      "deliveryDate": "2025-08-08",
+      "address": "Wagholi pune"
     }
   ],
   "contactdata": [

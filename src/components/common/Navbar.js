@@ -189,6 +189,12 @@ const Navbar = () => {
               Contact
             </Link>
           </li>
+
+          <li className="nav-item mx-2">
+            <Link className="nav-link fw-semibold text-uppercase" to="/trackorder">
+              My order
+            </Link>
+          </li>
         </ul>
         
         {isLogin?(
