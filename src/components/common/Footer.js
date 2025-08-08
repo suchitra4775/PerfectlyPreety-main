@@ -12,18 +12,18 @@ const Footer = () => {
       <div className="container">
         <div className="footer-grid">
           {/* Brand Section */}
-          <div className="footer-branding">
+          <div className="footaer-branding">
             <h2 className="brand-title">Perfectly Preety</h2>
             <p className="brand-tagline">Empowering beauty through elegance & innovation.</p>
             <div className="footer-icons">
               <Link to="https://instagram.com/pretty_perfect_beauty" target="_blank"><InstagramIcon /></Link>
-              <Link href="https://x.com/prettycosmetics" target="_blank"><TwitterIcon /></Link>
-              <Link href="https://facebook.com/perfectlyprettycosmetics" target="_blank"><FacebookRoundedIcon /></Link>
-              <Link href="https://linkedin.com/company/prettycosmetics" target="_blank"><LinkedInIcon /></Link>
+              <Link to="https://x.com/prettycosmetics" target="_blank"><TwitterIcon /></Link>
+              <Link to="https://facebook.com/perfectlyprettycosmetics" target="_blank"><FacebookRoundedIcon /></Link>
+              <Link to="https://linkedin.com/company/prettycosmetics" target="_blank"><LinkedInIcon /></Link>
             </div>
           </div>
 
-          {/* Links Section */}
+          {/* Quick Links */}
           <div className="footer-links">
             <h4>Quick Links</h4>
             <ul>
@@ -34,6 +34,7 @@ const Footer = () => {
             </ul>
           </div>
 
+          {/* Support */}
           <div className="footer-info">
             <h4>Support</h4>
             <ul>
@@ -42,6 +43,27 @@ const Footer = () => {
               <li><Link to="#">Returns</Link></li>
               <li><Link to="#">Help</Link></li>
             </ul>
+          </div>
+
+          <div className="footer-info">
+            <h4>Help</h4>
+            <p>
+              <strong>Address:</strong><br />
+              Perfectly Preety Cosmetics,<br />
+              Sai crystal,Pune City,<br />
+              Maharashtra, India - 411001
+            </p>
+            <p>
+              <strong>Phone:</strong> +91 878899 4706<br />
+              <strong>Email:</strong> support@perfectlypreety.com
+            </p>
+            <p>
+              <Link to="https://www.google.com/maps?q=123+Beauty+Lane,+Glamour+City,+Maharashtra+411001"
+                target="_blank"
+              >
+                <h4>📍 View on Map</h4>
+              </Link>
+            </p>
           </div>
         </div>
 

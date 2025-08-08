@@ -14,35 +14,41 @@ import AdminDashboard from "../pages/AdminDashboard";
 import UserRegister from "../pages/UserRegister";
 import UserProfile from "../pages/UserProfile";
 import Checkout from "../users/Checkout";
+import Layout from "./Layout";
+import PrivateComp from "./PrivateComp";
+import TrackOrder from "../pages/Trackorder";
+import Trackorder from "../pages/Trackorder";
 
 
 const Rounting = createBrowserRouter([
-  {path:"/",element:<Home/>},
-  { path: "app", element: <App /> },
-  { path: "about", element: <About /> },
-  { path: "contact", element: <Contact /> },
-  {path:"login",element:<Loginform/>},
-  {path:"userregister",element:<UserRegister/>},
-  {path:"userprofile",element:<UserProfile/>},
+  {
+    path:"/",element:<PrivateComp>
+      <Layout/>
+      </PrivateComp>,
+    children:[
+    {path:"",element:<Home/>},
+    { path: "about", element: <About /> },
+    { path: "contact", element: <Contact /> },
+    {path:"login",element:<Loginform/>},
+    {path:"userregister",element:<UserRegister/>},
+    {path:"userprofile",element:<UserProfile/>},
 
-  //products
-  {path:"lipstick",element:<Lipstick/>},
-  {path:"blush",element:<Blush/>},
-  {path:"foundation",element:<Foundation/>},
-  {path:"eyeshadow",element:<Eyeshadow/>},
+    //products
+    {path:"lipstick",element:<Lipstick/>},
+    {path:"blush",element:<Blush/>},
+    {path:"foundation",element:<Foundation/>},
+    {path:"eyeshadow",element:<Eyeshadow/>},
 
-  //usercart
-  {path:"usercart", element:<UserCart/>},
-  {path:"checkout",element:<Checkout/>},
+    //usercart
+    {path:"usercart", element:<UserCart/>},
+    {path:"checkout",element:<Checkout/>},
+    {path:"trackorder",element:<Trackorder/>},
 
-  // admin
-  {path:"adminlogin",element:<AdminLogin/>},
-  {path:"admindashboard",element:sessionStorage.getItem("Adminlogin")?(<AdminDashboard/>):(<Navigate to="/adminlogin"/>)}
-  
+    // admin
+    {path:"adminlogin",element:<AdminLogin/>},
+    {path:"admindashboard",element:sessionStorage.getItem("Adminlogin")?(<AdminDashboard/>):(<Navigate to="/adminlogin"/>)}
+  ]
+},
 ]);
-
-
-
-
 
 export default Rounting;
