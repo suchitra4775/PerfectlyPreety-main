@@ -1,6 +1,6 @@
-import React, { useEffect, useState, } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useNavigate ,Link} from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Navbar from '../components/common/Navbar';
 import Footer from '../components/common/Footer';
 import { Delete, Get } from '../utilities/HttpService (3)';
@@ -9,37 +9,68 @@ const Checkout = () => {
   const [cartItems, setCartItems] = useState([]);
   const [deliveryMode, setDeliveryMode] = useState('');
   const [address, setAddress] = useState('');
+  const [useremail, setuseremail] = useState('');
+  const [modeError, setModeError] = useState('');
+  const [addressError, setAddressError] = useState('');
   const navigate = useNavigate();
-
-  const name = sessionStorage.getItem('username');
-  const email = sessionStorage.getItem('useremail');
+  const username = sessionStorage.getItem("username");
 
   useEffect(() => {
-    Get(`http://localhost:8888/userdashboard?username=${name}`)
+    Get(`http://localhost:8888/loginuser?name=${username}`)
+      .then((res) => {
+        setuseremail(res[0].email)
+      })
+      .catch((err) => {
+        console.log("Email fetch error:", err);
+      });
+  }, []);
+
+  useEffect(() => {
+    Get(`http://localhost:8888/userdashboard?name=${username}`)
       .then((res) => setCartItems(res))
       .catch((err) => console.error(err));
-  }, [name]);
+  }, []);
 
   const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   const handleModeChange = (e) => {
-    const mode = e.target.value;
-    setDeliveryMode(mode);
+    setDeliveryMode(e.target.value);
+    setModeError('');
   };
 
   const handlePlaceOrder = async () => {
-    const deliveryDate = new Date().toISOString().split('T')[0]; // today's date
+    let isValid = true;
+
+    if (!deliveryMode) {
+      setModeError("Please select a delivery mode.");
+      isValid = false;
+    }
+
+    if (deliveryMode === 'Home Delivery' && !address.trim()) {
+      setAddressError("Please enter your delivery address.");
+      isValid = false;
+    } else {
+      setAddressError('');
+    }
+
+    if (!isValid) return;
+
+    const deliveryDateTime = new Date().toLocaleString('en-IN',{
+      dateStyle:"medium",
+      timeStyle:"short"
+    });
 
     try {
       const orders = cartItems.map((item) =>
         axios.post('http://localhost:8888/orderItems', {
-          name,
-          email,
-          product: item.name,
+          name: username,
+          email: useremail,
+          product: item.description,
+          image: item.image,
           quantity: item.quantity,
           price: item.price * item.quantity,
           mode: deliveryMode,
-          deliveryDate,
+          deliveryDate:deliveryDateTime,
           address: deliveryMode === 'Home Delivery' ? address : 'N/A'
         })
       );
@@ -102,11 +133,10 @@ const Checkout = () => {
               </tbody>
             </table>
 
-            {/* Delivery Mode Selection */}
             <div className="mt-4">
               <label className="form-label fw-bold">Mode of Delivery:</label>
               <select
-                className="form-select"
+                className={`form-select ${modeError ? 'is-invalid' : ''}`}
                 value={deliveryMode}
                 onChange={handleModeChange}
               >
@@ -115,23 +145,23 @@ const Checkout = () => {
                 <option value="Self Pickup">Self Pickup</option>
                 <option value="Online">Online</option>
               </select>
+              {modeError && <div className="invalid-feedback">{modeError}</div>}
             </div>
 
-            {/* Address box if Home Delivery */}
             {deliveryMode === 'Home Delivery' && (
               <div className="mt-3">
                 <label className="form-label fw-bold">Address:</label>
                 <textarea
-                  className="form-control"
+                  className={`form-control ${addressError ? 'is-invalid' : ''}`}
                   rows="3"
                   placeholder="Enter your delivery address"
                   value={address}
                   onChange={(e) => setAddress(e.target.value)}
                 />
+                {addressError && <div className="invalid-feedback">{addressError}</div>}
               </div>
             )}
 
-            {/* QR and Place Order */}
             <div className="text-center mt-5">
               {deliveryMode === 'Online' && (
                 <>
@@ -144,12 +174,13 @@ const Checkout = () => {
                 </>
               )}
               {deliveryMode === 'Self Pickup' && (
-                <div style={{textAlign:"start", marginTop:"-20px"}}>
-                <p style={{color:"crimson",fontWeight:700,fontSize:"20px"}}>Perfectly Preety Shop Address:-</p>
-                <p style={{wordSpacing:"2px", fontSize:"18px", color:"#4a4749ff" }}>Sai crystal society, B-wing,<br/>Wagholi, Pune-412207<br/><b>Contact: </b>+91 8788994706</p>
+                <div style={{ textAlign: "start", marginTop: "-20px" }}>
+                  <p style={{ color: "crimson", fontWeight: 700, fontSize: "20px" }}>Perfectly Preety Shop Address:-</p>
+                  <p style={{ wordSpacing: "2px", fontSize: "18px", color: "#4a4749ff" }}>
+                    Sai crystal society, B-wing,<br />Wagholi, Pune-412207<br /><b>Contact: </b>+91 8788994706
+                  </p>
                 </div>
               )}
-
               <button className="btn btn-success mt-3" onClick={handlePlaceOrder}>
                 ✅ Place Order
               </button>

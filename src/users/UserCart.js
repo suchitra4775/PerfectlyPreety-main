@@ -8,21 +8,8 @@ import { Delete, Get } from "../utilities/HttpService (3)";
 const UserCart = () => {
   const [userCart, setUserCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
-  const [userEmail,setuserEmail] = useState()
   const username = sessionStorage.getItem("username");
 
-  useEffect(() => {
-    Get(`http://localhost:8000/loginuser/?username=${username}`)
-      .then((res) => {
-          setuserEmail(res.email);
-          console.log("User email:", userEmail);
-      })
-      .catch((err) => {
-        console.error("Error fetching email:", err);
-      });
-  }, []);
-
-console.log(userEmail)
   useEffect(() => {
     Get(`http://localhost:8888/userdashboard?name=${username}`)
       .then((res) => {

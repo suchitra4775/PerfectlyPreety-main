@@ -397,90 +397,64 @@
   "userdashboard": [],
   "orderItems": [
     {
-      "id": "6ab5",
+      "id": "15ec",
       "name": "Suhani",
-      "email": null,
-      "product": "Suhani",
-      "quantity": 2,
-      "price": 288,
-      "mode": "COD",
-      "deliveryDate": "2025-08-07"
+      "email": "suhanishinde2509@gmail.com",
+      "product": "Kay Beauty Hydra Creme Lipstick",
+      "image": "/assests/images/lipstick/Kayhydralipstick.avif",
+      "quantity": 1,
+      "price": 236,
+      "mode": "Home Delivery",
+      "deliveryDate": "2025-08-10",
+      "address": ""
     },
     {
-      "id": "3827",
+      "id": "1fb2",
       "name": "Suhani",
-      "email": null,
-      "product": "Suhani",
+      "email": "suhanishinde2509@gmail.com",
+      "product": "Nybae pro blush+highlighter",
+      "image": "/assests/images/blush/nybaeblush.webp",
       "quantity": 1,
-      "price": 849,
-      "mode": "COD",
-      "deliveryDate": "2025-08-07"
-    },
-    {
-      "id": "1721",
-      "name": "Suhani",
-      "email": null,
-      "product": "Suhani",
-      "quantity": 1,
-      "price": 562,
-      "mode": "Online",
-      "deliveryDate": "2025-08-07",
+      "price": 229,
+      "mode": "Self Pickup",
+      "deliveryDate": "2025-08-10",
       "address": "N/A"
     },
     {
-      "id": "9c68",
+      "id": "b40e",
       "name": "Suhani",
-      "email": null,
-      "product": "Suhani",
+      "email": "suhanishinde2509@gmail.com",
+      "product": "Kay Beauty Hydra Creme Lipstick",
+      "image": "/assests/images/lipstick/Kayhydralipstick.avif",
+      "quantity": 2,
+      "price": 472,
+      "mode": "Self Pickup",
+      "deliveryDate": "2025-08-10",
+      "address": "N/A"
+    },
+    {
+      "id": "122b",
+      "name": "Suhani",
+      "email": "suhanishinde2509@gmail.com",
+      "product": "Charlotte Tilbury Airbrush Flawless Foundation",
+      "image": "/assests/images/foundation/charlottefoundation.avif",
       "quantity": 1,
       "price": 4900,
-      "mode": "Online",
-      "deliveryDate": "2025-08-07",
+      "mode": "Self Pickup",
+      "deliveryDate": "2025-08-10",
       "address": "N/A"
     },
     {
-      "id": "b447",
+      "id": "2c3e",
       "name": "Suhani",
-      "email": null,
-      "product": "Suhani",
+      "email": "suhanishinde2509@gmail.com",
+      "product": "Nykaa All Day Matte Long Wear Liquid Foundation",
+      "image": "/assests/images/foundation/nykaafoundation.avif",
       "quantity": 1,
-      "price": 849,
+      "price": 422,
       "mode": "Home Delivery",
-      "deliveryDate": "2025-08-07",
-      "address": "wagholi"
-    },
-    {
-      "id": "4df9",
-      "name": "Suhani",
-      "email": null,
-      "product": "Suhani",
-      "quantity": 1,
-      "price": 144,
-      "mode": "Home Delivery",
-      "deliveryDate": "2025-08-07",
-      "address": "wagholi"
-    },
-    {
-      "id": "fde0",
-      "name": "Suhani",
-      "email": null,
-      "product": "Suhani",
-      "quantity": 1,
-      "price": 562,
-      "mode": "Home Delivery",
-      "deliveryDate": "2025-08-08",
-      "address": "Wagholi pune"
-    },
-    {
-      "id": "7e6d",
-      "name": "Suhani",
-      "email": null,
-      "product": "Suhani",
-      "quantity": 2,
-      "price": 844,
-      "mode": "Home Delivery",
-      "deliveryDate": "2025-08-08",
-      "address": "Wagholi pune"
+      "deliveryDate": "10 Aug 2025, 10:06 pm",
+      "address": "pune"
     }
   ],
   "contactdata": [
@@ -491,30 +465,6 @@
       "phone": "9876543214",
       "subject": "Hello",
       "message": "hiii welcome"
-    },
-    {
-      "id": "99c0",
-      "fullname": "sa",
-      "email": "suhanishinde2509@gmail.com",
-      "phone": "8788994706",
-      "subject": "ra",
-      "message": "hii"
-    },
-    {
-      "id": "e341",
-      "fullname": "sasasas",
-      "email": "manjunathd397@gmail.com",
-      "phone": "ssss",
-      "subject": "sssss",
-      "message": "ssss"
-    },
-    {
-      "id": "dea9",
-      "fullname": "as",
-      "email": "ssroyal259@gmail.com",
-      "phone": "9876543214",
-      "subject": "hi",
-      "message": "hsfsft"
     }
   ]
 }
