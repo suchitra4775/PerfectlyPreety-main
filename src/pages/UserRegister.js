@@ -22,7 +22,7 @@ const UserRegister = () => {
 
     let Updatename = value
     if(name==="name"){
-      Updatename = value.charAt(0).toUppercase()+value.slice(1)
+      // Updatename = value.charAt(0).toUppercase()+value.slice(1)
     }
     setFormData(prev => ({
       ...prev,

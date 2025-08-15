@@ -11,20 +11,28 @@ const UserCart = () => {
   const username = sessionStorage.getItem("username");
 
   useEffect(() => {
-    Get(`http://localhost:8888/userdashboard?name=${username}`)
-      .then((res) => {
-        const cartWithQty = res.map((item) => ({
-          ...item,
-          quantity: item.quantity || 1,
-        }));
-        setUserCart(cartWithQty);
-        calculateTotal(cartWithQty);
-      })
-      .catch((err) => {
-        console.error("Error fetching cart:", err);
-        alert("Error loading cart.");
-      });
-  }, [username]);
+  console.log("Username:", username);
+  Get(`http://localhost:8888/userdashboard/?name:${username}`)
+    .then((res) => {
+      console.log("Fetched cart data:", res); 
+      const cartWithQty = res.map((item) => ({
+        ...item,
+        quantity: item.quantity || 1,
+      }));
+      setUserCart(cartWithQty);
+      calculateTotal(cartWithQty);
+    })
+    .catch((err) => {
+      console.error("Error fetching cart:", err);
+      alert("Error loading cart.");
+    });
+}, [username]);
+
+
+  useEffect(() => {
+  console.log("Cart updated:", userCart);
+}, [userCart]);
+
 
   const calculateTotal = (items) => {
     const total = items.reduce(

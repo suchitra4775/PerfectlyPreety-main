@@ -35,6 +35,16 @@
       "gender": "Female",
       "password": "divya123",
       "address": "Hadapsar,Pune"
+    },
+    {
+      "id": "6895",
+      "name": "Suchitra ",
+      "email": "suchitra@gmail.com",
+      "contact": "9420035359",
+      "dob": "2025-08-07",
+      "gender": "Female",
+      "password": "suchitra123",
+      "address": "pune"
     }
   ],
   "loginadmin": [
@@ -175,15 +185,6 @@
       "description": "Perfectly preety new arrival",
       "price": "3999",
       "category": "lipstick"
-    },
-    {
-      "id": "101",
-      "image": "/assests/images/blush/nybaeblush.webp",
-      "description": "Nybae pro blush+highlighter",
-      "price": 229,
-      "originalPrice": 399,
-      "discount": 5,
-      "category": "blush"
     },
     {
       "id": "102",
@@ -392,9 +393,94 @@
       "originalPrice": "800",
       "discount": 5,
       "category": "eyeshadow"
+    },
+    {
+      "id": "1755257152007",
+      "image": "/assests/images/lipstick/Kayhydralipstick.avif",
+      "description": "new blush",
+      "price": "500",
+      "originalPrice": "600",
+      "discount": "10",
+      "category": "blush"
+    },
+    {
+      "id": "1755257474315",
+      "image": "/assests/images/lipstick/Kayhydralipstick.avif",
+      "description": "new blush",
+      "price": "500",
+      "originalPrice": "",
+      "discount": "20",
+      "category": "lipstick"
     }
   ],
-  "userdashboard": [],
+  "userdashboard": [
+    {
+      "id": "2",
+      "image": "/assests/images/lipstick/Kayhydralipstick.avif",
+      "description": "Kay Beauty Hydra Creme Lipstick",
+      "price": 236,
+      "originalPrice": 239,
+      "discount": 5,
+      "category": "lipstick",
+      "name": "Suchitra ",
+      "quantity": 1
+    },
+    {
+      "id": "3",
+      "image": "/assests/images/lipstick/charlotte.avif",
+      "description": "Charlotte Tilbury Matte Resolution",
+      "price": 999,
+      "originalPrice": 599,
+      "discount": 30,
+      "category": "lipstick",
+      "name": "Suchitra ",
+      "quantity": 1
+    },
+    {
+      "id": "107",
+      "image": "/assests/images/blush/swissblush.webp",
+      "description": "Swiss variant color blushes",
+      "price": 562,
+      "originalPrice": 749,
+      "discount": 25,
+      "category": "blush",
+      "name": "Suchitra ",
+      "quantity": 1
+    },
+    {
+      "id": "302",
+      "image": "/assests/images/eyeshadow/rhodaeyeshadow.webp",
+      "description": "Hilary Rhoda Perfection Eyeshadow Palette",
+      "price": 383,
+      "originalPrice": 425,
+      "discount": 10,
+      "category": "eyeshadow",
+      "name": "Suchitra ",
+      "quantity": 1
+    },
+    {
+      "id": "204",
+      "image": "/assests/images/foundation/charlottefoundation.avif",
+      "description": "Charlotte Tilbury Airbrush Flawless Foundation",
+      "price": 4900,
+      "originalPrice": 5500,
+      "discount": 35,
+      "category": "foundation",
+      "name": "Suchitra ",
+      "quantity": 1
+    },
+    {
+      "id": "203",
+      "image": "/assests/images/foundation/lakmefoundation.avif",
+      "description": "Lakme Xtraordin-Airy Mousse Foundation",
+      "price": 699,
+      "originalPrice": 999,
+      "discount": 30,
+      "category": "foundation",
+      "name": "Suchitra ",
+      "quantity": 1
+    }
+  ],
   "orderItems": [
     {
       "id": "15ec",

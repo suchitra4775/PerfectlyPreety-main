@@ -26,12 +26,12 @@ const AdminLogin = () => {
       return false;
     }
 
-    if (!emailRegex.match(email)) {
+    if (!emailRegex.test(email)) {
       alert("Invalid email format.");
       return false;
     }
 
-    if (!passRegex.match(password)) {
+    if (!passRegex.test(password)) {
       alert("Password must have at least 6 characters with letters and numbers.");
       return false;
     }
